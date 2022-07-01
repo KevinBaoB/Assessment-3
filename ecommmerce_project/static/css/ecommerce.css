@@ -1,0 +1,22 @@
+body {
+  /* background-color: blue; */
+  background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/69/11/9BumOl.jpg");
+  margin: 1.5rem;
+}
+
+.container-fluid {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 2rem;
+}
+
+.container-fluid.home-description {
+  padding: 2rem;
+  padding-top: 3rem;
+  color: aliceblue;
+}
+
+.btn-primary {
+  --bs-btn-bg: none;
+  --bs-btn-hover-bg: #663486;
+  --bs-btn-hover-border-color: #663486;
+}
