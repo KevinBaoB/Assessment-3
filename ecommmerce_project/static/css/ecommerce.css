@@ -20,3 +20,15 @@ body {
   --bs-btn-hover-bg: #663486;
   --bs-btn-hover-border-color: #663486;
 }
+
+a.nav-link {
+  color: rgba(255, 255, 255, 1);
+}
+
+a#shopnow {
+  text-decoration: none;
+}
+
+h1 {
+  color: whitesmoke;
+}
