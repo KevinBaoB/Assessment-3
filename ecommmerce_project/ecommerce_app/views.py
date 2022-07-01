@@ -13,5 +13,5 @@ import os
 # Create your views here.
 
 def index(request):
-    response = render(request, 'ecommerce_app/index.html')
+    response = render(request, 'ecommerce_app/home.html')
     return response
