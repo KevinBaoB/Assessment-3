@@ -1,8 +1,7 @@
-{% extends "ecommerce_app/layout.html" %} {% block content %}
-<div class="container-fluid home-description">
-  <h1>Shopping by The Idiot for the Idiots.</h1>
-  <button type="button" class="btn btn-primary btn-lg">
-    <a class="shopnow" id="shownow" href="inventory/">Shop Now</a>
-  </button>
-</div>
-{% endblock %}
+{% extends 'ecommerce_app/layout.html' %} {% load static %} {% block content %}
+<h1>Shopping by The Idiot for Idiots</h1>
+<h3>For all you impulse buying needs.</h3>
+<button class="btn btn-outline-secondary">
+  <a class="linking" href="{% url 'ecommerce:store' %}">Shop Now</a>
+</button>
+{%endblock %}

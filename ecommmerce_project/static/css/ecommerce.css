@@ -1,34 +1,119 @@
 body {
-  /* background-color: blue; */
-  background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/69/11/9BumOl.jpg");
-  margin: 1.5rem;
+  background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#8ec5fc),
+      to(#e0c3fc)
+    )
+    fixed;
+  /* background-image: url("https://coolbackgrounds.io/images/backgrounds/index/sea-edge-79ab30e2.png"); */
 }
 
-.container-fluid {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 2rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: hsl(0, 0%, 30%);
 }
 
-.container-fluid.home-description {
-  padding: 2rem;
-  padding-top: 3rem;
-  color: aliceblue;
+.box-element {
+  box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 10px;
 }
 
-.btn-primary {
-  --bs-btn-bg: none;
-  --bs-btn-hover-bg: #663486;
-  --bs-btn-hover-border-color: #663486;
+.thumbnail {
+  width: 100%;
+  height: 200px;
+  -webkit-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+  -moz-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
+  box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
 }
 
-a.nav-link {
-  color: rgba(255, 255, 255, 1);
-}
-
-a#shopnow {
+.linking {
   text-decoration: none;
 }
 
-h1 {
-  color: whitesmoke;
+.btn {
+  border-radius: 5px;
+}
+
+.product {
+  border-radius: 0 0 4px 4px;
+}
+
+.bg-dark {
+  background-color: rgba(39, 48, 245, 0.62) !important;
+}
+
+#cart-icon {
+  width: 25px;
+  display: inline-block;
+  margin-left: 15px;
+}
+
+#cart-total {
+  display: block;
+  text-align: center;
+  color: #fff;
+  background-color: red;
+  width: 20px;
+  height: 25px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.col-lg-4,
+.col-lg-6,
+.col-lg-8,
+.col-lg-12 {
+  margin-top: 10px;
+}
+
+.btn {
+  border-radius: 0;
+}
+
+.row-image {
+  width: 100px;
+}
+
+.form-field {
+  width: 250px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.cart-row {
+  display: flex;
+  align-items: flex-stretch;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ececec;
+}
+
+.quantity {
+  display: inline-block;
+  font-weight: 700;
+  padding-right: 10px;
+}
+
+.chg-quantity {
+  width: 12px;
+  cursor: pointer;
+  display: block;
+  margin-top: 5px;
+  transition: 0.1s;
+}
+
+.chg-quantity:hover {
+  opacity: 0.6;
+}
+
+.hidden {
+  display: none !important;
 }
