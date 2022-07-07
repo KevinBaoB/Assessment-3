@@ -28,17 +28,18 @@ class Category(models.Model):
         verbose_name_plural = 'categories'
 
     def get_absolute_url(self):
-        return reverse('store:category_list', args=[self.slug])
+        return reverse('ecommerce:category_list', args=[self.slug])
 
     def __str__(self):
         return self.name
 
 class Product(models.Model):
-    slug = SlugField(max_length=255)
+    
     name = models.CharField(max_length=200)
     price = models.FloatField()
     digital = models.BooleanField(default=False,null=True, blank=True)
     category = models.ForeignKey(Category, related_name='product', on_delete=models.CASCADE)
+    slug = models.SlugField(max_length=255,null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     in_stock = models.BooleanField(default=True)
     
@@ -49,9 +50,9 @@ class Product(models.Model):
     class Meta:
         verbose_name_plural = 'Products'
 
-
+# retrieves the url for the particular item or product
     def get_absolute_url(self):
-        return reverse('ecommerce_app:product_detail', args=[self.slug])
+        return reverse('ecommerce:product_detail', args=[self.slug])
 
 
     @property

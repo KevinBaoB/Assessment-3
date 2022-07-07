@@ -1,17 +1,15 @@
 
-from unicodedata import category
-from urllib import response
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import JsonResponse
 import requests as HTTP_Client
-from django.contrib import messages
-from django.utils import timezone
 from requests_oauthlib import OAuth1
 from dotenv import load_dotenv
-import pprint
+import pprint as pp
 import os
 from .models import *
 from .utils import *
+
+load_dotenv()
 
 # default page when loading
 def index(request):
@@ -146,16 +144,17 @@ def categories(request):
 def category_list(request, category_slug=None):
     category = get_object_or_404(Category, slug=category_slug)
     products = Product.objects.filter(category=category)
-    return render(request, 'store/products/category.html', {'category': category, 'products': products})
+    return render(request, 'ecommerce_app/category.html', {'category': category, 'products': products})
 
 def product_detail(request, slug):
-    product = get_object_or_404(Product, slug=slug, in_stock=True)
-    return render(request, 'store/products/detail.html', {'product': product})
+    product = get_object_or_404(Product, slug=slug)
+    return render(request, 'ecommerce_app/detail.html', {'product': product})
 
 # get the icon when item is out of stock
-def get_icon(request, name):
+def get_icon(request, slug):
+
     auth = OAuth1(os.environ["apikey"], os.environ["privatekey"])
-    endpoint = f"http://api.thenounproject.com/icon/{name}"
+    endpoint = f"http://api.thenounproject.com/icon/{slug}"
 
     API_response = HTTP_Client.get(endpoint, auth=auth)
     responseJSON = API_response.json()
@@ -166,7 +165,7 @@ def get_icon(request, name):
     if os.environ['env'] == 'prod':
         # send emails, only ibn prod
         pass
-    # response = render(request, 'wishes_app/wishes.html', {"icon": icon})
-    # return response
+   
+    return render(request, 'ecommerce_app/detail.html', {'icon': icon})
 
 

@@ -1,0 +1,47 @@
+{% extends 'ecommerce_app/layout.html' %} {% load static %} {% block title %} {%
+if category %}{{ category.name }}{% endblock %}{% block content %}
+
+<main>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="pb-3 h5">{{category.name|title}}</div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
+        {% for product in products %}
+            <div class="col-lg-4">
+              {% if product.in_stock == False %}
+              <img class="thumbnail" src="{{ product.imageURL }}" />
+              <div class="box-element product">
+                <h6><strong>{{product.name}}</strong></h6>
+                <hr />
+          
+                <h5 style="display: inline-block">Out of Stock</h5>
+          
+                {% else %}
+                <img class="thumbnail" src="{{product.imageURL}}" />
+                <div class="box-element product">
+                  <h6><strong>{{product.name}}</strong></h6>
+                  <hr />
+                  <button
+                    data-product="{{product.id}}"
+                    data-action="add"
+                    class="btn btn-outline-secondary add-btn update-cart"
+                  >
+                    Add to Cart
+                  </button>
+                  {% endif %}
+          
+                  <a class="btn btn-outline-success" href="{{ product.get_absolute_url }}"
+                    >View</a
+                  >
+                  <h4 style="display: inline-block; float: right">
+                    <strong>${{product.price}}</strong>
+                  </h4>
+                </div>
+              </div>
+              {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
